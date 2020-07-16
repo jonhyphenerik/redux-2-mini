@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import Card from './../shared/Card/Card';
 import Loading from './../shared/Loading/Loading';
 import {requestArticles} from '../../ducks/hackerNewsReducer'
@@ -6,7 +7,7 @@ import {requestArticles} from '../../ducks/hackerNewsReducer'
 class HackerNews extends Component {
   constructor(props) {
     super(props);
-    this.state = { articles: [], loading: true }
+    this.state = {}
   }
 
   componentDidMount(){
@@ -24,7 +25,9 @@ class HackerNews extends Component {
   }
 }
 
-function mapStateToProps(state) {return state}
+function mapStateToProps(state) {
+    console.log(state)
+    return state.hackerNews}
 export default connect(mapStateToProps, {requestArticles})(HackerNews);
 
 
